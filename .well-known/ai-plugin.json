@@ -1,7 +1,7 @@
 {
   "schema_version": "v1",
   "name_for_model": "geabox_protocol_docs",
-  "name_for_human": "Gearbox Protocol Documentation Plugin",
+  "name_for_human": "Gearbox Protocol Docs",
   "description_for_model": "Plugin for searching through Gearbox Protocol's documents to find answers to questions and retrieve relevant information about how to use and develop software against the protocol. Use it whenever a user asks something that might be relevant to Gearbox Protocol. Do not use it for other information.",
   "description_for_human": "Search through Gearbox Protocol documents.",
   "auth": {
