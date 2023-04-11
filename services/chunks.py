@@ -166,10 +166,13 @@ def get_document_chunks(
     # Initialize an empty list of all chunks
     all_chunks: List[DocumentChunk] = []
 
+    print("Creating document chunks...")
+
     # Loop over each document and create chunks
     for doc in documents:
         doc_chunks, doc_id = create_document_chunks(doc, chunk_token_size)
 
+        print(f"Document {doc_id} has {len(doc_chunks)} chunks")
         # Append the chunks for this document to the list of all chunks
         all_chunks.extend(doc_chunks)
 
@@ -178,6 +181,7 @@ def get_document_chunks(
 
     # Check if there are no chunks
     if not all_chunks:
+        print("No chunks to embed")
         return {}
 
     # Get all the embeddings for the document chunks in batches, using get_embeddings
@@ -187,6 +191,8 @@ def get_document_chunks(
         batch_texts = [
             chunk.text for chunk in all_chunks[i : i + EMBEDDINGS_BATCH_SIZE]
         ]
+
+        print(f"Getting embeddings for batch {i} to {i + EMBEDDINGS_BATCH_SIZE}...")
 
         # Get the embeddings for the batch texts
         batch_embeddings = get_embeddings(batch_texts)
@@ -199,4 +205,5 @@ def get_document_chunks(
         # Assign the embedding from the embeddings list to the chunk object
         chunk.embedding = embeddings[i]
 
+    print("Finished getting embeddings")
     return chunks
