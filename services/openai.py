@@ -6,7 +6,7 @@ print("Environment variables:")
 for key, value in os.environ.items():
     print(f"{key}: {value}")
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = os.getenv("OPEN_AI_KEY:")
 print("OpenAI API key set: ", bool(openai.api_key))
 
 
