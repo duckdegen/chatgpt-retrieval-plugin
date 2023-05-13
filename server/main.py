@@ -96,6 +96,8 @@ async def query_main(
         results = await datastore.query(
             request.queries,
         )
+
+        print("results", results)
         return QueryResponse(results=results)
     except Exception as e:
         print("Error:", e)
@@ -115,6 +117,7 @@ async def query(
         results = await datastore.query(
             request.queries,
         )
+        print("results", results)
         return QueryResponse(results=results)
     except Exception as e:
         print("Error:", e)
